@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <el-container>
       <el-header>登录</el-header>
       <el-main>
@@ -7,7 +7,8 @@
         <el-input v-model="password" placeholder="请输入密码"></el-input>
       </el-main>
       <el-footer>
-        <el-button type="primary">登录</el-button>
+        <el-button type="primary" @click="login">登录</el-button>
+        <div>{{loginstate}}</div>
       </el-footer>
     </el-container>
   </div>
@@ -15,10 +16,26 @@
 
 <script>
 export default {
+  computed: {
+    loginstate: function () {
+      return this.$store.getters.getLoginstate
+    }
+  },
   data () {
     return {
       username: '',
       password: ''
+    }
+  },
+  methods: {
+    login: function () {
+      if (this.username) {
+        this.$store.dispatch('setUsername', this.username)
+        this.$store.dispatch('setLoginstate', '1')
+        this.$router.push({ path: '/member-center' })
+      } else {
+        alert('帐号密码不能为空')
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
     <div>
     <div id="caro-box">
         <el-carousel id="index-carousel" height="460px">
-            <el-carousel-item class="carouselitem" v-for="(item,index) in imgsrc" :key="index" name="index" :style="{'background-image':'url('+item+')'}">
+            <el-carousel-item class="carouselitem" v-for="(item,index) in imgsrc" :key="index" name="index" :style="{'background-image':'url('+item.image_url+')'}">
             </el-carousel-item>
         </el-carousel>
     </div>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import coursebox from '@/components/xb/courses-box'
+const coursebox = () => import('@/components/xb/courses-box')
 export default {
   computed: { // here ↓
     asd () {
@@ -54,9 +54,10 @@ export default {
   },
   data () {
     return {
-      imgsrc: ['https://cdn.xueyuan.xiaobao100.com/course/d0505070-6245-11e8-83bd-35d038aa443e.png', 'https://cdn.xueyuan.xiaobao100.com/course/24878770-5ce8-11e8-85da-6d25be2e07b6.jpg'],
+      imgsrc: [],
       codepic: false,
-      list: []
+      list: [],
+      goods: []
     }
   },
   created () {
@@ -70,7 +71,11 @@ export default {
       this.codepic = !this.codepic
     },
     getData () {
-      this.$api.get('topics', null, r => {
+      this.$api.get('mobile/banner/list?type=pc_home_setting', null, r => {
+        console.log(r)
+        this.imgsrc = r.data
+      })
+      this.$api.post('index_course', null, r => {
         console.log(r)
         this.list = r.data
       })

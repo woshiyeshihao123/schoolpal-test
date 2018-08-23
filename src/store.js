@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     count: 1,
     tabpage: '/',
-    indexstate: 0,
+    loginstate: 0,
     username: 'admin'
   },
   mutations: {
@@ -18,7 +18,7 @@ export default new Vuex.Store({
       state.tabpage = platform
     },
     Loginstate (state, platform) {
-      state.indexstate = platform
+      state.loginstate = platform
     },
     Username (state, platform) {
       state.username = platform
@@ -32,7 +32,7 @@ export default new Vuex.Store({
       commit('Tabpage', platform)
     },
     setLoginstate ({commit}, platform) {
-      commit('Indexstate', platform)
+      commit('Loginstate', platform)
     },
     setUsername ({commit}, platform) {
       commit('Username', platform)
@@ -41,7 +41,7 @@ export default new Vuex.Store({
   getters: {
     getCount: (state) => state.count,
     getTabpage: (state) => state.tabpage,
-    getLoginstate: (state) => state.indexstate,
+    getLoginstate: (state) => state.loginstate,
     getUsername: (state) => state.username
   }
 })

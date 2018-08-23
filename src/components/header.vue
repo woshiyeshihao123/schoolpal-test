@@ -17,13 +17,14 @@
       text-color="#fff"
       active-text-color="red"
       router>
-      <el-menu-item router index="/" @click="change ()">首页</el-menu-item>
-      <el-menu-item  index="/allcourses">全部课程</el-menu-item>
+      <el-menu-item router index="/" @click="change">首页</el-menu-item>
+      <el-menu-item  index="/member-center" @click="change2">用户中心</el-menu-item>
       </el-menu>
       <div class="rt login-box">
         <router-link v-if="!loginstate" to='/login'>登录</router-link>
-        <router-link v-if="loginstate">{{username}}</router-link>
-        <router-link to='/allcourses'>注册</router-link>
+        <router-link v-if="loginstate" to='/member-center'>{{username}}</router-link>
+        <router-link v-if="!loginstate" to='/allcourses'>注册</router-link>
+        <a href="javacript:void(0);"  v-if="loginstate" @click="logout">注销</a>
       </div>
       <div class="clear"></div>
     </div>
@@ -46,6 +47,15 @@ export default {
   methods: {
     change () {
       this.$store.dispatch('setTabpage', '/')
+    },
+    change2 () {
+      this.$store.dispatch('setTabpage', '/member-center')
+    },
+    logout () {
+      this.$store.dispatch('setLoginstate', 0)
+      this.$store.dispatch('setUsername', '')
+      alert('注销成功')
+      this.$router.push({ path: '/login' })
     }
   }
 }

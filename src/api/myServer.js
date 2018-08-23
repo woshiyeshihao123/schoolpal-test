@@ -1,7 +1,7 @@
 // 接口调用工具文件夹
 
 // 配置API接口地址
-var root = '/api/coulson'
+var root = '/goods'
 // 引用axios
 var axios = require('axios')
 // 自定义判断元素类型JS
