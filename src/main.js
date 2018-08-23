@@ -6,10 +6,13 @@ import store from './store'
 import api from './api/index.js'
 import myServe from './api/myServer.js'
 // element
-// import ElementUI from 'element-ui'
+import ElementUI from 'element-ui'
+
 // vue-infinite-scroll
 import infiniteScroll from 'vue-infinite-scroll'
-// Vue.use(ElementUI)
+
+import './plugins/element.js'
+Vue.use(ElementUI)
 Vue.use(infiniteScroll)
 
 // 将API方法绑定到全局
