@@ -20,5 +20,13 @@ module.exports = {
       }
     }, // 设置代理
     before: app => {}
+  },
+
+  configureWebpack: {
+    externals: {
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter'
+    }
   }
 }
