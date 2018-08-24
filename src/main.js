@@ -6,13 +6,13 @@ import store from './store'
 import api from './api/index.js'
 import myServe from './api/myServer.js'
 // element
-import ElementUI from 'element-ui'
+// import ElementUI from 'element-ui'
 
 // vue-infinite-scroll
 import infiniteScroll from 'vue-infinite-scroll'
 
 import './plugins/element.js'
-Vue.use(ElementUI)
+// Vue.use(ElementUI)
 Vue.use(infiniteScroll)
 
 // 将API方法绑定到全局
@@ -41,6 +41,7 @@ router.beforeEach((to, from, next) => {
       flag = true
     }
   } // 已登录状态；当路由到login时，跳转至home
+
   if (to.name === 'Login') {
     if (isLogin) {
       router.push({ name: 'Xbindex' })

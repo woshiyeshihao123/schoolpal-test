@@ -21,10 +21,4 @@ module.exports = {
     }, // 设置代理
     before: app => {}
   }
-
-  // configureWebpack: {
-  //   test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-  //   loader: 'file-loader'
-  // }
-
 }
