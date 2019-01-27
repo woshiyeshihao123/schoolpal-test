@@ -84,7 +84,9 @@ export default {
     float: left;
     margin-bottom: -1px;
     border-bottom:none
-
+  }
+  .el-menu.el-menu--horizontal {
+    border: none;
   }
 
   .el-menu-demo .el-menu-item{

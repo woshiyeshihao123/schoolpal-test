@@ -25,16 +25,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    setCount ({commit}, platform) {
+    setCount ({ commit }, platform) {
       commit('Count', platform)
     },
-    setTabpage ({commit}, platform) {
+    setTabpage ({ commit }, platform) {
       commit('Tabpage', platform)
     },
-    setLoginstate ({commit}, platform) {
+    setLoginstate ({ commit }, platform) {
       commit('Loginstate', platform)
     },
-    setUsername ({commit}, platform) {
+    setUsername ({ commit }, platform) {
       commit('Username', platform)
     }
   },
